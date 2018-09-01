@@ -6,7 +6,7 @@ The suggested framework aims to address the lack of consistency between differen
 The benefits are not limited to the increase of productivity but also include the introduction of a parametric design tool that allows design iteration, team collaboration and easy maintenance of components and metadata parameters. The major aim of this framework is to eliminate the errors that arise from having the same information stored in several different documents that must be simultaneously maintained.
 .
 
-![ASV Logo](../core/static/core/img/asv-logo.png)
+![ASV Logo](././core/static/core/img/asv-logo.png)
 
 
 
