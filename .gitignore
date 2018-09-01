@@ -2,3 +2,4 @@ base/
 virtual_env/
 issues.txt
 AUTHOR_CONTRIBUTORS.rst
+workbench/db.sqlite3
