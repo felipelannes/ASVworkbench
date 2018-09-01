@@ -8,7 +8,7 @@ The benefits are not limited to the increase of productivity but also include th
 
 
 
-					![ASV Logo](../../core/static/core/img/asv-logo.png)
+![ASV Logo](../../core/static/core/img/asv-logo.png)
 
 
 
