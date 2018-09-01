@@ -6,7 +6,7 @@ The application is built with Django.
 
 You can see a demo of this application at `NEED TO DEPLOY YET`.
 
-See [our in-depth documentation](workbench/workbench/docs/src/index.md) for information about
+See [our in-depth documentation](/docs/src/index.md) for information about
 project, guidelines to development and documentation and plugins.
 
 ## Copyright and License
