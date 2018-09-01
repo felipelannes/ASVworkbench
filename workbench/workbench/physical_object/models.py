@@ -64,7 +64,7 @@ class VESSEL(MASS_PROPERTY):
 		'ASV Project Number',
 		max_length=4,
 		validators=[RegexValidator(regex=r'^[A-Z0-9]+$')],
-		unique=true)
+		unique=True)
 	name = models.CharField('Name',max_length=32,unique=True)
 	description = models.TextField('Description',blank=True)
     ####################### MASS PROPERTIES FROM ABSTRACT CLASS  #################################

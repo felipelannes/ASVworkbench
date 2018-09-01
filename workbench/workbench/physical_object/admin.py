@@ -10,7 +10,7 @@ class VESSEL_ADMIN(admin.ModelAdmin):
 	prepopulated_fields = {'slug':('name',)}
 
 
-@admin.registe(PART)
+@admin.register(PART)
 class PART_ADMIN(admin.ModelAdmin):
 	list_display = ['vessel_id','group_system', 'part_name', 'description']
 
