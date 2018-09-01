@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load core_tags %}
+
+{% block page_header %} {% build_page_header vessel.name 'Overview' %} {% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12  col-lg-12 ">
+    <ul class="nav nav-tabs">
+      <li><a data-toggle="tab" href="#general_information">General Information</a></li>
+      <li class="active"><a data-toggle="tab" href="#reports">Reports</a></li>
+      <li><a data-toggle="tab" href="#analysis">Analysis</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="general_information" class="tab-pane fade">
+        <h2 class="page-header">Overview</h2>
+        <ol>
+          <li>Project Number: </li>
+          <li>Description: </li>
+          <li>...</li>
+          <li>...</li>
+
+        </ol>
+        <br>
+        <h2>Some KPI</h2> 
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+            0%
+          </div>
+        </div>
+        <br>
+        <h2>Some interesting table</h2> 
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+              </tr>
+              <tr>
+                <td>1,002</td>
+                <td>amet</td>
+                <td>consectetur</td>
+                <td>adipiscing</td>
+                <td>elit</td>
+              </tr>
+          
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="reports" class="tab-pane fade in active">
+        <!--<div class="breadcrumb">
+          <li><a href="#overview">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </div>
+        <div class="row">
+          <div class="col-md-2  col-lg-2 ">
+            <ul class="nav nav-tabs nav-stacked">
+              <li class="active"><a data-toggle="tab" href="#weight_control">Weight Control</a></li>
+              <li><a data-toggle="tab" href="#structure">Structure</a></li>
+              <li><a data-toggle="tab" href="#propulsion">Propulsion</a></li>
+            </ul>
+          </div>
+          <div class="col-md-10  col-lg-10 ">
+            <div class="tab-content">
+              <div id="weight_control" class="tab-pane fade in active">
+                weight control
+              </div>
+              <div id="structure" class="tab-pane fade">
+                To implement
+              </div>
+              <div id="propulsion" class="tab-pane fade">
+                To implement
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">List of Reports</h3>
+          </div>
+          <div class="panel-body text-center">
+            <p>{{reports_list}}</p>
+          </div>
+
+          <!-- List group -->
+          <div class="list-group">
+            {% for report in reports_list %}
+              {% ifequal report.name "Weight Control" %}
+                <a href="#{{report.slug}}" class="list-group-item" data-toggle="collapse"> <span class="badge">{{report.children|length}}</span><b>{{report.name}}</b></a>
+                <div id="{{report.slug}}" class="collapse">
+                  {% for report_children in report.children %}
+                    <a href={% url 'report:weightsheet' report_area=report.slug %} class="list-group-item" ><h5>Weightsheet</h5></a>
+                  {% endfor %}
+                  <a href="" class="list-group-item disabled"><h5>Load Condition</h5></a>
+                  <a href="" class="list-group-item disabled"><h5>Stability</h5></a>
+                </div>
+              {% else %}
+                <a href="" class="list-group-item disabled" > <span class="badge">{{report.children|length}}</span><b>{{report.name}}</b></a>
+              {% endifequal %}
+            {% empty %}
+              <a href="" class="list-group-item disabled" ><b>Without available report</b></a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div id="analysis" class="tab-pane fade">
+        <div class="page-header">
+          <h2>TO IMPLEMENT</h2>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+
+
+{% endblock %}

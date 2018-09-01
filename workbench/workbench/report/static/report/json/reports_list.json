@@ -1,0 +1,22 @@
+[{
+  "name":"Weight Control",
+  "slug":"weight-control",
+  "description":"Weight Control area description",
+  "children":[
+  				{"slug":"weightsheet","name":"Weightsheet","description":"Weightsheet description"},
+  				{"slug":"load-condition","name":"Load Condition","description":"Load Condition description"},
+  			 	{"slug":"stability","name":"Stability","description":"Stability description"}
+  			 ]
+},
+{
+  "slug":"structure",
+  "name":"Structure",
+  "description":"Structure area description",
+  "children":[{"slug":"FEM","name":"FEM","description":"Finite Element Method descriptions"}]
+},
+{
+  "slug":"propulsion",
+  "name":"Propulsion",
+  "description":"Propulsion area description",
+  "children":[{"slug":"calculate-drag","name":"Calculate Drag","description":"Calculate Drag for Arbitrary Shape"}]
+}]

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load core_tags %}
+
+{% block page_header %} {% build_page_header 'New Vessel' 'Create a new vessel' %} {% endblock %}
+
+
+{% block content %}
+	<form method="POST" class="post-form"  style="margin-left:40px;">{% csrf_token %}
+        {% for field in form %}
+            <div>
+                <div>
+                    <div style="margin-left:-20px;"> {{field.errors}}</div>
+                    {{field.label_tag}}
+                </div>
+                <div>
+                    {{field}}  <br>
+                </div>
+            </div>
+        {% endfor %}
+        <button type="submit"  class="btn btn-primary" >Create</button>
+    </form><br><br>
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load core_tags %}
+
+{% block page_header %} {% build_page_header 'Weightsheet' 'First report of Weight Control area' %} {% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+  	<div class="col-md-12  col-lg-12 ">
+        <ul class="nav nav-tabs">
+	      <li><a data-toggle="tab" href="#cover">Cover</a></li>
+	      <li><a data-toggle="tab" href="#first_page">First Page</a></li>
+	      <li><a data-toggle="tab" href="#summary">Summary</a></li>
+	      <li class="active"><a data-toggle="tab" href="#content">Content</a></li>
+	    </ul>
+
+	    <div class="tab-content">
+		    <div id="cover" class="tab-pane fade">
+		      	<h2 class="page-header">Version Control</h2>
+		      	Actual Revision:	 &nbsp;&nbsp;&nbsp; <input type="text" id="revison" name="revision" value="Revision ">
+		    </div>
+
+	      	<div id="first_page" class="tab-pane fade">
+		      	<h2 class="page-header">General Note</h2>
+			    <p>Add text box with button to add new note</p>
+			    <h2 class="page-header">Assumption</h2>
+			    <p>Add text box with button to add new assumption</p>
+			    <h2 class="page-header">Coordinate System</h2>
+			    X axis is aligned with the vessel length:	 &nbsp;&nbsp;&nbsp; <input type="text" id="x_reference" name="x_reference"><br>
+			    Y axis is aligned with the vessel beam:	 &nbsp;&nbsp;&nbsp; <input type="text" id="y_reference" name="y_reference"><br>
+			    Z axis is perpendicular to the waterplane:	 &nbsp;&nbsp;&nbsp; <input type="text" id="z_reference" name="z_reference"><br><br>
+			    <b><p>Add portside and top vessel view image with reference</p></b>
+	     	</div>
+
+		    <div id="summary" class="tab-pane fade">
+		    	<h2 class="page-header">Summary</h2>
+		    	<div class="table-responsive">
+		          <table class="table table-striped">
+		            <thead>
+		              <tr>
+		                <th>Group System</th>
+		                <th>Description</th>
+		            	<th>Mass</th>
+		                <th>Number of Items</th>
+		                <th>LCG</th>
+		                <th>TCG</th>
+		                <th>VCG</th>
+		              </tr>
+		            </thead>
+		            <tbody>
+		              <tr>
+		                <td>Structure</td>
+		                <td>Lorem</td>
+		                <td>ipsum</td>
+		                <td>dolor</td>
+		                <td>sit</td>
+		                <td>ipsum</td>
+		                <td>dolor</td>
+		                <td>sit</td>
+		              </tr>
+		              <tr>
+		                <td>Propulsion</td>
+		                <td>amet</td>
+		                <td>{% lorem %}</td>
+		                <td>adipiscing</td>
+		                <td>elit</td>
+		                <td>Lorem</td>
+		                <td>ipsum</td>
+		                <td>dolor</td>
+		              </tr>
+		            <thead>
+		              <tr>
+		              	<th></th>
+		                <th>Total</th>
+		                <th>Mass</th>
+		                <th>Number of Items</th>
+		                <th>LCG</th>
+		                <th>TCG</th>
+		                <th>VCG</th>
+		              </tr>
+		            </thead>
+		            </tbody>
+		          </table>
+		      	</div>
+		    	<h2 class="page-header">Center of Gravity Graph</h2>
+		    	<b><p>INSERT IMAGE</p></b>
+		    </div>
+
+		    <div id="content" class="tab-pane fade in active">
+		    	<br>
+
+		    	<ul class="nav nav-tabs">
+		    		<li><a data-toggle="tab" href="#group_system">Group System</a></li>
+		    		<li><a data-toggle="tab" href="#weight_control_evolution">Weight Control Evolution</a></li>
+		    	</ul>
+		    	<div class="tab-content">
+					<div id="group_system" class="tab-pane fade">
+						<br>
+
+				    	<ul class="nav nav-tabs">
+					      <li class="active"><a data-toggle="tab" href="#upload">Upload</a></li>
+					      <li><a data-toggle="tab" href="#structure">Structure</a></li>
+					      <li><a data-toggle="tab" href="#propulsion">Propulsion</a></li>
+					      <li><a data-toggle="tab" href="#eletrical">Eletrical</a></li>
+					    </ul>
+
+					    <div class="tab-content">
+						    <div id="upload" class="tab-pane fade in active">
+						    	<br><h3>Upload a Weightsheet File</h3>
+					            <form action=''  method="POST" enctype="multipart/form-data" class="form-inline">{% csrf_token %}
+					                <div class="form-group">
+					                    <div class="col-md-8">
+					                        <input type="file" name="xls_file" id="xls_file" required="True" class="form-control">
+					                    </div>                    
+					                </div>
+					                <div class="form-group">                    
+					                    <div class="col-md-12" style="margin-left:40px;">
+					                         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" onclick="window.alert('Excel file is loading...')"></span>Upload </button>
+					                    </div> 
+					                </div>
+					            </form>
+						    </div>
+
+						    <div id="structure" class="tab-pane fade">
+						    	<div class="table-responsive">
+						          <table class="table table-striped">
+						            <thead>
+						              <tr>
+						                <th>Part Name</th>
+						                <th>Description</th>
+						                <th>Mass</th>
+						                <th>Quantity</th>
+						                <th>LCG</th>
+						                <th>TCG</th>
+						                <th>VCG</th>
+						              </tr>
+						            </thead>
+						            <tbody>
+						              <tr>
+						                <td>Lorem</td>
+						                <td>ipsum</td>
+						                <td>dolor</td>
+						                <td>sit</td>
+						                <td>ipsum</td>
+						                <td>dolor</td>
+						                <td>sit</td>
+						              </tr>
+						              <tr>
+						                <td>{% lorem %}</td>
+						                <td>amet</td>
+						                <td>adipiscing</td>
+						                <td>elit</td>
+						                <td>Lorem</td>
+						                <td>ipsum</td>
+						                <td>dolor</td>
+						              </tr>
+						            <thead>
+						              <tr>
+						              	<th></th>
+						                <th>Total</th>
+						                <th>Mass</th>
+						                <th>Number of Items</th>
+						                <th>LCG</th>
+						                <th>TCG</th>
+						                <th>VCG</th>
+						              </tr>
+						            </thead>
+						            </tbody>
+						          </table>
+						      	</div>
+						    </div>
+
+
+
+						</div>
+					</div>
+					
+					<div id="weight_control_evolution" class="tab-pane fade">
+						<br>
+
+						<ul class="nav nav-tabs">
+						      <li class="active"><a data-toggle="tab" href="#history">History</a></li>
+						      <li><a data-toggle="tab" href="#weight_graph">Weight</a></li>
+						      <li><a data-toggle="tab" href="#lcg_graph">Longitudinal Center of Gravity</a></li>
+						      <li><a data-toggle="tab" href="#vcg_graph">Vertical Center of Gravity</a></li>
+						    </ul>
+
+						    <div class="tab-content">
+							    <div id="history" class="tab-pane fade in active">
+							    	<h2>History</h2>
+							    </div>
+							    <div id="weight_graph" class="tab-pane fade">
+							    	<h2>Weight Graph</h2>
+							    </div>
+							    <div id="lcg_graph" class="tab-pane fade">
+							    	<h2>Longitudinal Center of Gravity</h2>
+							    </div>
+							    <div id="vcg_graph" class="tab-pane fade">
+							    	<h2>Vertical Center of Gravity</h2>
+							    </div>
+							</div>
+					</div>
+
+				</div>
+
+		    	
+		      
+		    </div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

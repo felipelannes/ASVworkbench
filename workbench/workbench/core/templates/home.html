@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page_header %}
+
+<div class="jumbotron" style="height: 400px;">
+  <div class="container text-center">
+    <img src="{% static 'core/img/swish.png' %}" width='200px' >
+    <h1 style="font-size: 80px">ASV Workbench</h1>      
+    <p style="text-align: center;">Your Naval Architecture Parametric Design Toolkit</p>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+ 
+<div class="container-fluid bg-3 text-center">    
+  <h3>Some of projects in progress</h3><hr><br>
+</div>
+
+  <div class="row">
+    {% for vessel in all_vessel%}
+      {% if forloop.counter < 5 %}
+        <div class="col-sm-3"> 
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="thumbnail">
+                <div class="caption">
+                  <h4 style="width: 100%;"><b>{{vessel.name}}</b></h4>
+                </div>
+                <a href="#vessel{{vessel.id}}" data-toggle="collapse">
+                  {% if vessel.image %} 
+                    <img src="{{vessel.image.url}}" class="img-responsive" style="width:300px;height:300px" alt="{{vessel.name}}">
+                  {% else %}
+                    <img src="" class="img-responsive" style="width:300px;height:300px" alt="{{vessel.name}}">
+                  {% endif %}
+                </a>
+                <div id="vessel{{vessel.id}}" class="collapse text-center">
+                  <p>Some Metadata</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% empty%}
+         <p>No vessel in database</p>
+    {% endfor %}
+</div><br>
+
+{% endblock %}
